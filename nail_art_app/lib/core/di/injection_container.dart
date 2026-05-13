@@ -17,11 +17,11 @@ import '../../features/nail/presentation/cubits/nail_home_cubit.dart';
 final sl = GetIt.instance;
 
 Future<void> initDependencies() async {
-  // ─── External ───────────────────────────────────────────────
+
   final sharedPrefs = await SharedPreferences.getInstance();
   sl.registerLazySingleton<SharedPreferences>(() => sharedPrefs);
 
-  // ─── Data Sources ───────────────────────────────────────────
+ 
   sl.registerLazySingleton<NailRemoteDataSource>(
     () => NailRemoteDataSourceImpl(),
   );
@@ -30,7 +30,7 @@ Future<void> initDependencies() async {
     () => NailLocalDataSourceImpl(sharedPreferences: sl()),
   );
 
-  // ─── Repositories ───────────────────────────────────────────
+  
   sl.registerLazySingleton<NailRepository>(
     () => NailRepositoryImpl(
       remoteDataSource: sl(),
@@ -38,13 +38,13 @@ Future<void> initDependencies() async {
     ),
   );
 
-  // ─── Use Cases ──────────────────────────────────────────────
+ 
   sl.registerLazySingleton(() => GetNailDesigns(sl()));
   sl.registerLazySingleton(() => GetDesignById(sl()));
   sl.registerLazySingleton(() => ToggleFavorite(sl()));
   sl.registerLazySingleton(() => GetFavorites(sl()));
 
-  // ─── Cubits ─────────────────────────────────────────────────
+  
   sl.registerFactory(
     () => NailHomeCubit(
       getNailDesigns: sl(),
