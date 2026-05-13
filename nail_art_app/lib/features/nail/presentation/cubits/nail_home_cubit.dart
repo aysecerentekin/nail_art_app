@@ -53,10 +53,10 @@ class NailHomeCubit extends Cubit<NailHomeState> {
 
     result.fold(
       (failure) {
-        // Hata olursa UI'ı etkileme, sadece log
+        // Hata olursa UI'ı etkilememesi için
       },
       (_) {
-        // Optimistic update: listede anında güncelle
+        //  listede anında güncelle
         final updatedDesigns = currentState.designs.map((d) {
           if (d.id == id) return d.copyWith(isFavorite: newFavoriteValue);
           return d;
