@@ -11,7 +11,7 @@ class NailDesign extends Equatable {
   final List<String> colors;
   final double rating;
   final int reviewCount;
-  final String difficulty; // 'Kolay', 'Orta', 'Zor'
+  final String difficulty; 
   final int durationMinutes;
   final bool isFavorite;
   final List<String> steps;
