@@ -8,14 +8,12 @@ abstract class NailRemoteDataSource {
 }
 
 class NailRemoteDataSourceImpl implements NailRemoteDataSource {
-  // Gerçek uygulamada Dio inject edilir:
-  // final Dio dio;
-  // NailRemoteDataSourceImpl({required this.dio});
+ 
 
   @override
   Future<List<NailDesignModel>> getNailDesigns() async {
-    // Gerçek API çağrısı: final response = await dio.get('/designs');
-    // Mock veri - gerçek uygulamada API'den gelir
+  
+  
     await Future.delayed(const Duration(milliseconds: 800));
     return _mockDesigns;
   }
