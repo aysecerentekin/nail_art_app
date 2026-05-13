@@ -1,4 +1,4 @@
-// lib/core/utils/app_constants.dart
+
 
 class AppConstants {
   AppConstants._();
@@ -21,6 +21,6 @@ class AppConstants {
     'Pastel',
   ];
 
-  // Mock resim URL'leri (gerçek uygulamada API'den gelir)
+  
   static const String baseImageUrl = 'https://picsum.photos';
 }
