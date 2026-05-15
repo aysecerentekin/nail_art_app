@@ -14,15 +14,15 @@ class GetNailDesigns implements UseCase<List<NailDesign>, GetNailDesignsParams> 
   @override
   Future<Either<Failure, List<NailDesign>>> call(
       GetNailDesignsParams params) async {
-    if (params.category == null || params.category == 'Tümü') {
+    if (params.category == null || params.category == 'Tümü') { //kategori seçilmemişse veya tümü seçilmişse tüm listeyi getirir.
       return repository.getNailDesigns();
     }
-    return repository.getNailDesignsByCategory(params.category!);
+    return repository.getNailDesignsByCategory(params.category!); // belirli bir kategori seçildeyse o kategoriye göre filtreleme yapılır.
   }
 }
 
 class GetNailDesignsParams extends Equatable {
-  final String? category;
+  final String? category; //filtrelenecek kategori adı
   const GetNailDesignsParams({this.category});
 
   @override
