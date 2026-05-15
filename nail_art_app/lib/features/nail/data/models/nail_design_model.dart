@@ -2,6 +2,7 @@
 
 import '../../domain/entities/nail_design.dart';
 
+//entity
 class NailDesignModel extends NailDesign {
   const NailDesignModel({
     required super.id,
@@ -18,7 +19,7 @@ class NailDesignModel extends NailDesign {
     required super.steps,
     required super.artistName,
   });
-
+//map verisini modele dönüştürme.
   factory NailDesignModel.fromJson(Map<String, dynamic> json) {
     return NailDesignModel(
       id: json['id'] as String,
@@ -55,6 +56,8 @@ class NailDesignModel extends NailDesign {
     };
   }
 
+  
+//favori durumunu güncelleyerek nesnenin yeni bir kopyasını oluşturur
   NailDesignModel copyWithFavorite(bool isFavorite) {
     return NailDesignModel(
       id: id,
