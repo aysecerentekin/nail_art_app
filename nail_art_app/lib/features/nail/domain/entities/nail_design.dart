@@ -2,6 +2,7 @@
 
 import 'package:equatable/equatable.dart';
 
+//tırnak tasarımlarını temsil eden sınıf.
 class NailDesign extends Equatable {
   final String id;
   final String title;
@@ -17,6 +18,7 @@ class NailDesign extends Equatable {
   final List<String> steps;
   final String artistName;
 
+  //veri güvenliği ve değişmezlik
   const NailDesign({
     required this.id,
     required this.title,
@@ -33,6 +35,7 @@ class NailDesign extends Equatable {
     required this.artistName,
   });
 
+  //favoriye ekleme/çıkarma durumlarında arayüzü tetiklemek kullanılır.
   NailDesign copyWith({
     String? id,
     String? title,
