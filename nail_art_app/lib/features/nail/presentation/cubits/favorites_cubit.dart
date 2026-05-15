@@ -10,16 +10,16 @@ import '../../../../core/usecases/usecase.dart';
 part 'favorites_state.dart';
 
 class FavoritesCubit extends Cubit<FavoritesState> {
-  final GetFavorites getFavorites;
-  final ToggleFavorite toggleFavorite;
+  final GetFavorites getFavorites; //favorileri listeleme
+  final ToggleFavorite toggleFavorite; //favori ekleme çıkarma
 
   FavoritesCubit({
     required this.getFavorites,
     required this.toggleFavorite,
   }) : super(const FavoritesInitial());
 
-  Future<void> loadFavorites() async {
-    emit(const FavoritesLoading());
+  Future<void> loadFavorites() async { //favorilerdeki tasarımları yükler
+    emit(const FavoritesLoading()); //yükleniyor durumu
 
     final result = await getFavorites(const NoParams());
 
@@ -29,7 +29,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
     );
   }
 
-  Future<void> removeFavorite(String id) async {
+  Future<void> removeFavorite(String id) async { //favorilerden ürün kaldırma.
     final currentState = state;
     if (currentState is! FavoritesLoaded) return;
 
