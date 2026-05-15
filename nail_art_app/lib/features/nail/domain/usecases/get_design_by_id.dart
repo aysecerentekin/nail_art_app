@@ -7,6 +7,7 @@ import '../../../../core/usecases/usecase.dart';
 import '../entities/nail_design.dart';
 import '../repositories/nail_repository.dart';
 
+//tek bir tırnak tasarımı getirir
 class GetDesignById implements UseCase<NailDesign, GetDesignByIdParams> {
   final NailRepository repository;
   GetDesignById(this.repository);
