@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class AppTheme {
   AppTheme._();
 
-  // ─── Renk Paleti ───────────────────────────────────────────
+  // Renk Paleti 
   static const Color primaryPink = Color(0xFFF48FB1);
   static const Color deepPink = Color(0xFFE91E8C);
   static const Color lightPink = Color(0xFFFCE4EC);
@@ -17,10 +17,10 @@ class AppTheme {
   static const Color cardBackground = Color(0xFFFFFFFF);
   static const Color scaffoldBackground = Color(0xFFFFF0F5);
 
-  static ThemeData get lightTheme {
+  static ThemeData get lightTheme { //açık tema ayarları
     return ThemeData(
       useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(
+      colorScheme: ColorScheme.fromSeed( //kullanılan widgetların renk paleti.
         seedColor: primaryPink,
         primary: deepPink,
         secondary: accentPurple,
@@ -31,8 +31,8 @@ class AppTheme {
       scaffoldBackgroundColor: scaffoldBackground,
       fontFamily: 'Poppins',
 
-      // AppBar
-      appBarTheme: const AppBarTheme(
+      // AppBar tasarımı ve renk paleti
+      appBarTheme: const AppBarTheme( 
         backgroundColor: softWhite,
         elevation: 0,
         centerTitle: true,
@@ -42,7 +42,7 @@ class AppTheme {
           fontWeight: FontWeight.w600,
           letterSpacing: 0.5,
         ),
-        iconTheme: IconThemeData(color: deepPink),
+        iconTheme: IconThemeData(color: deepPink), //AppBar üzerindeki butonların rengi
       ),
 
       // Card
@@ -71,7 +71,7 @@ class AppTheme {
         ),
       ),
 
-      // Chip
+      // kategori etiketleri tasarımı ve renk paleti
       chipTheme: ChipThemeData(
         backgroundColor: lightPink,
         selectedColor: deepPink,
@@ -82,7 +82,7 @@ class AppTheme {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       ),
 
-      // BottomNavigationBar
+      // BottomNavigationBar tasarımı ve renk paleti
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: softWhite,
         selectedItemColor: deepPink,
@@ -93,7 +93,7 @@ class AppTheme {
         elevation: 10,
       ),
 
-      // InputDecoration
+      // InputDecoration tasarımı
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: lightPink.withOpacity(0.4),
@@ -108,7 +108,7 @@ class AppTheme {
         hintStyle: const TextStyle(color: greyText),
         prefixIconColor: greyText,
       ),
-
+//yazı stilleri katoloğu
       textTheme: const TextTheme(
         displayLarge: TextStyle(color: darkText, fontWeight: FontWeight.w700),
         headlineMedium: TextStyle(color: darkText, fontWeight: FontWeight.w600),
