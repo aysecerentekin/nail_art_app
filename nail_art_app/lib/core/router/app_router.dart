@@ -8,12 +8,12 @@ import '../../features/nail/presentation/screens/detail_screen.dart';
 import '../../features/nail/presentation/screens/favorites_screen.dart';
 
 class AppRoutes {
-  static const String home = '/';
-  static const String detail = '/detail';
-  static const String favorites = '/favorites';
+  static const String home = '/'; //anasayfa rotası
+  static const String detail = '/detail'; //detay sayfası rotası
+  static const String favorites = '/favorites'; //favoriler sayfası rotası
 }
 
-final GoRouter appRouter = GoRouter(
+final GoRouter appRouter = GoRouter( //uygulama ilk açıldığında hangi rotadan başlayacak.
   initialLocation: AppRoutes.home,
   routes: [
     GoRoute(
@@ -35,7 +35,7 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => const FavoritesScreen(),
     ),
   ],
-  errorBuilder: (context, state) => Scaffold(
+  errorBuilder: (context, state) => Scaffold( //uygulamadaa tanımlanmamış bir rotaya gidilmek istenirse çalışır.
     body: Center(
       child: Text('Sayfa bulunamadı: ${state.error}'),
     ),
