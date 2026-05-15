@@ -10,18 +10,18 @@ abstract class Failure extends Equatable {
   List<Object> get props => [message];
 }
 
-class ServerFailure extends Failure {
+class ServerFailure extends Failure { //sunucu kaynaklı hata oluşursa çalışır.
   const ServerFailure({super.message = 'Sunucu hatası oluştu.'});
 }
 
-class CacheFailure extends Failure {
+class CacheFailure extends Failure { //veri okunmadığında kullanılır.
   const CacheFailure({super.message = 'Yerel veri hatası oluştu.'});
 }
 
-class NetworkFailure extends Failure {
+class NetworkFailure extends Failure { //bağlantı hatası bulunursa çalışır.
   const NetworkFailure({super.message = 'İnternet bağlantısı yok.'});
 }
 
-class NotFoundFailure extends Failure {
+class NotFoundFailure extends Failure { //tırnak tasarımı bulunamazsa çalışır.
   const NotFoundFailure({super.message = 'Tasarım bulunamadı.'});
 }
