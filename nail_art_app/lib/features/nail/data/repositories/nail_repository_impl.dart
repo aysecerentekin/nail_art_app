@@ -10,7 +10,7 @@ import '../datasources/nail_remote_datasource.dart';
 import '../models/nail_design_model.dart';
 
 class NailRepositoryImpl implements NailRepository {
-  final NailRemoteDataSource remoteDataSource;
+  final NailRemoteDataSource remoteDataSource; //tasarımları ve hafızadan favori ıdleri çeker.
   final NailLocalDataSource localDataSource;
 
   NailRepositoryImpl({
@@ -79,7 +79,7 @@ class NailRepositoryImpl implements NailRepository {
         updatedIds.remove(id);
       }
 
-      await localDataSource.saveFavoriteIds(updatedIds);
+      await localDataSource.saveFavoriteIds(updatedIds); //güncel favori ıd listesini yerel hafızaya kaydeder
       return Right(isFavorite);
     } on CacheException catch (e) {
       return Left(CacheFailure(message: e.message));
@@ -89,8 +89,9 @@ class NailRepositoryImpl implements NailRepository {
   @override
   Future<Either<Failure, List<NailDesign>>> getFavoriteDesigns() async {
     try {
-      final favoriteIds = await localDataSource.getFavoriteIds();
-      final allDesigns = await remoteDataSource.getNailDesigns();
+      final favoriteIds = await localDataSource.getFavoriteIds(); //favori ıdleri ve tüm tasarımları birleştirir.
+      final allDesigns = await remoteDataSource.getNailDesigns(); //favori ıd listesinde olan tasarımları filtreler ve değerlerini true yapar.
+      
 
       final favorites = allDesigns
           .where((d) => favoriteIds.contains(d.id))
