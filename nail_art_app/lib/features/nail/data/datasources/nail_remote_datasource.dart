@@ -14,13 +14,13 @@ class NailRemoteDataSourceImpl implements NailRemoteDataSource {
   Future<List<NailDesignModel>> getNailDesigns() async {
   
   
-    await Future.delayed(const Duration(milliseconds: 800));
+    await Future.delayed(const Duration(milliseconds: 800));  //sunucu gecikmesi olursa 800ms bekler
     return _mockDesigns;
   }
 
   @override
   Future<NailDesignModel> getNailDesignById(String id) async {
-    await Future.delayed(const Duration(milliseconds: 400));
+    await Future.delayed(const Duration(milliseconds: 400)); //sunucu gecikmesi olursa 400ms bekler
     return _mockDesigns.firstWhere(
       (d) => d.id == id,
       orElse: () => throw Exception('Tasarım bulunamadı'),
@@ -28,7 +28,7 @@ class NailRemoteDataSourceImpl implements NailRemoteDataSource {
   }
 }
 
-final List<NailDesignModel> _mockDesigns = [
+final List<NailDesignModel> _mockDesigns = [ //arayüz için hazır veri.
   NailDesignModel(
     id: '1',
     title: 'Pembe Ombré',
