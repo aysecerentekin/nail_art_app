@@ -6,12 +6,13 @@ import '../../../../core/usecases/usecase.dart';
 import '../entities/nail_design.dart';
 import '../repositories/nail_repository.dart';
 
+//kullanıcının favoriye eklediği tüm tırnak tasarımlarını getirir
 class GetFavorites implements UseCase<List<NailDesign>, NoParams> {
   final NailRepository repository;
   GetFavorites(this.repository);
 
   @override
   Future<Either<Failure, List<NailDesign>>> call(NoParams params) async {
-    return repository.getFavoriteDesigns();
+    return repository.getFavoriteDesigns(); // depodan favori listesini talep etme.
   }
 }
