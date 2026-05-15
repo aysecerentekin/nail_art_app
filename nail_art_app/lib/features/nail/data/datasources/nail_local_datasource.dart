@@ -6,6 +6,7 @@ import '../../../../core/errors/exceptions.dart';
 import '../../../../core/utils/app_constants.dart';
 import '../models/nail_design_model.dart';
 
+//yerel hafıza işlemleri
 abstract class NailLocalDataSource {
   Future<List<NailDesignModel>> getCachedDesigns();
   Future<void> cacheDesigns(List<NailDesignModel> designs);
@@ -27,12 +28,12 @@ class NailLocalDataSourceImpl implements NailLocalDataSource {
           .map((e) => NailDesignModel.fromJson(e as Map<String, dynamic>))
           .toList();
     }
-    throw const CacheException(message: 'Cache\'de tasarım bulunamadı');
+    throw const CacheException(message: 'Cache\'de tasarım bulunamadı'); //önbellek boşsa hata verir.
   }
 
   @override
   Future<void> cacheDesigns(List<NailDesignModel> designs) async {
-    final jsonString = json.encode(designs.map((d) => d.toJson()).toList());
+    final jsonString = json.encode(designs.map((d) => d.toJson()).toList()); //model listesini jsona dönüştürür.
     await sharedPreferences.setString('cached_designs', jsonString);
   }
 
@@ -42,7 +43,7 @@ class NailLocalDataSourceImpl implements NailLocalDataSource {
   }
 
   @override
-  Future<void> saveFavoriteIds(List<String> ids) async {
+  Future<void> saveFavoriteIds(List<String> ids) async { //favorileri belleğe kaydeder.
     await sharedPreferences.setStringList(AppConstants.favoritesKey, ids);
   }
 }
